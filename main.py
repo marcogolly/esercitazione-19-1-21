@@ -4,7 +4,6 @@ class ExamException(Exception):
 class Diff:
   def __init__(self, ratio=1):
     try:
-            
       assert(ratio >=1)
       assert(isinstance(ratio, int))
       assert(not isinstance(ratio, bool))
