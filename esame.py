@@ -24,7 +24,6 @@ class Diff:
     except:
         raise ExamException("formato lista non corretto")
     try:
-        #testo che la lista non sia vuota o più piccola della len di finestra
         assert(len(vals) >= 2)
     except:
         raise ExamException("lista troppo piccola")
@@ -32,17 +31,3 @@ class Diff:
     for i in range(len(vals)-1):
       res.append((vals[i+1]- vals[i])/self.ratio)
     return res
-try:
-  diff = Diff(0)
-except ExamException as e:
-  print(e)
-
-result = diff.compute([2,4,8,16])
-
-print(result)
-test = [[2,4,8,16],[], [1,2,3],[1.2, 2.3, 4.5, 6.3, 4.6],"ciao",10,[1,2,3,[4,5]],["1","2", "3", "4"], [1,2, True],12.1,[None],None,[-12,-23,-5, 5, 1.4],[-12,-23,-5, 5, 1.4, "ciao"],[None, 1,2,3]]
-for t in test:
-  try:
-    print("provo {}:".format(t), diff.compute(t))
-  except ExamException as e:
-    print("provo {}:".format(t),e)
